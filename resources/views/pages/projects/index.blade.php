@@ -3,7 +3,8 @@
     <title>Projects</title>
 @endsection
 @section('content')
-    <h1>PROJECTS: </h1>
+    <h1 class="ms-3">PROJECTS: </h1>
+    <a class="ms-3" href="{{ route('project.create') }}">CREATE</a>
     <ul>
         @foreach ($projects as $project)
             <li>
@@ -14,7 +15,9 @@
                 @foreach($project -> technologies as $technology)
                     <p>Technology: {{$technology -> name}}</p>
                 @endforeach
+                <a href="">EDIT</a>
             </li>
+            <br>
         @endforeach
     </ul>
 @endsection
