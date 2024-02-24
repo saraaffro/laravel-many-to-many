@@ -31,15 +31,15 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table -> dropForeign('projects_type_id_foreign');
+            $table -> dropForeign(['type_id']);
             $table -> dropColumn('type_id'); //non per forza necessario
         });
 
         Schema::table('project_technology', function (Blueprint $table) {
-            $table -> dropForeign('project_technology_project_id_foreign');
+            $table -> dropForeign(['project_id']);
             $table -> dropColumn('project_id');
 
-            $table -> dropForeign('project_technology_technology_id_foreign');
+            $table -> dropForeign(['technology_id']);
             $table -> dropColumn('technology_id');
         });
     }
