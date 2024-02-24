@@ -15,7 +15,7 @@
                 @foreach($project -> technologies as $technology)
                     <p>Technology: {{$technology -> name}}</p>
                 @endforeach
-                <a href="">EDIT</a>
+                <a href="{{ route('project.edit', $project -> id) }}">EDIT</a>
             </li>
             <br>
         @endforeach

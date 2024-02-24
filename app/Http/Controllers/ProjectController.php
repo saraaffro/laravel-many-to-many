@@ -45,4 +45,37 @@ class ProjectController extends Controller
 
         return redirect() -> route('project.index');
     }
+
+    public function edit($id) {
+
+        $project = Project :: find($id);
+
+        $types = Type :: all();
+        $technologies = Technology :: all();
+
+        return view('pages.projects.edit', compact('project', 'types', 'technologies'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $data = $request -> all();
+
+        $type = Type :: find($data['type_id']);
+
+        $project = Project :: find($id);
+
+        $project -> title = $data['title'];
+        $project -> description = $data['description'];
+        $project -> date = $data['date'];
+
+        $project -> type() -> associate($type);
+
+        $project -> save();
+
+        $project -> technologies() -> sync($data['technology_id']);
+
+        // chiedere spiegazione, non è molto chiaro
+
+        return redirect() -> route('project.index');
+    }
 }

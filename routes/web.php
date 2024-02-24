@@ -14,5 +14,11 @@ Route::get('/projects', [ProjectController :: class, 'index'])
 Route::get('/projects/create', [ProjectController :: class, 'create'])
     -> name('project.create');
 
-Route::post('/project/create', [ProjectController :: class, 'store'])
+Route::post('/projects/create', [ProjectController :: class, 'store'])
     -> name('project.store');
+
+Route::get('/projects/{id}/edit', [ProjectController :: class, 'edit'])
+    -> name('project.edit');
+    
+Route::put('/projects/{id}/edit', [ProjectController :: class, 'update'])
+    -> name('project.update');
