@@ -14,6 +14,9 @@
                         <strong>{{$project -> title}}</strong>
                         <p>{{$project -> description}}</p>
                         <p>{{$project -> date}}</p>
+                        @foreach ($project -> technologies as $technology)
+                            <p>{{$technology -> name}} </p>
+                        @endforeach
                     </li>
                 @endforeach
             </ul>
