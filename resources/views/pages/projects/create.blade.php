@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1 class="ms-3">NEW PROJECT:</h1>
-    <form class="ms-3" action="{{ route('project.store') }}" method="POST">
+    <form class="ms-3" action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
 
@@ -43,6 +43,9 @@
         @endforeach
         <br><br>
         
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" accept="image/">
+        <br><br>
 
         <input type="submit" value="CREATE">
     </form>

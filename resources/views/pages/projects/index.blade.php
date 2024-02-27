@@ -9,7 +9,9 @@
     <ul>
         @foreach ($projects as $project)
             <li>
-                <strong>Title: {{$project -> title}}</strong>
+                <a href="{{ route('project.show', $project -> id) }}">
+                    <strong>Title: {{$project -> title}}</strong>
+                </a> 
                 <p>Description: {{$project -> description}}</p>
                 <p>{{$project -> date}}</p>
                 <p>Type: {{$project -> type -> name}}</p>
