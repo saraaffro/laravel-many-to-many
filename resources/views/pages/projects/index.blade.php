@@ -5,6 +5,7 @@
 @section('content')
     <h1 class="ms-3">PROJECTS: </h1>
     <a class="ms-3" href="{{ route('project.create') }}">CREATE</a>
+    <br><br>
     <ul>
         @foreach ($projects as $project)
             <li>

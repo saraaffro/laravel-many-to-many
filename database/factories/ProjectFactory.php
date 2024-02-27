@@ -20,6 +20,7 @@ class ProjectFactory extends Factory
             'title' => fake() -> words(3, true),
             'description' => fake() -> sentence(),
             'date' => fake() -> dateTime(),
+            'image' => null,
         ];
     }
 }
