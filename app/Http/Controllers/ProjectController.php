@@ -72,6 +72,9 @@ class ProjectController extends Controller
 
         $data = $request -> all();
 
+        $img = $data['image'];
+        $img_path = Storage :: disk('public') -> put('images', $img);
+
         $type = Type :: find($data['type_id']);
 
         $project = Project :: find($id);
@@ -79,6 +82,7 @@ class ProjectController extends Controller
         $project -> title = $data['title'];
         $project -> description = $data['description'];
         $project -> date = $data['date'];
+        $project -> image = $img_path;
 
         $project -> type() -> associate($type);
 

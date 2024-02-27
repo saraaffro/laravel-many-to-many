@@ -12,13 +12,7 @@
                 <a href="{{ route('project.show', $project -> id) }}">
                     <strong>Title: {{$project -> title}}</strong>
                 </a> 
-                <p>Description: {{$project -> description}}</p>
-                <p>{{$project -> date}}</p>
-                <p>Type: {{$project -> type -> name}}</p>
-                @foreach($project -> technologies as $technology)
-                    <p>Technology: {{$technology -> name}}</p>
-                @endforeach
-                <a href="{{ route('project.edit', $project -> id) }}">EDIT</a>
+                <a class="ms-3" href="{{ route('project.edit', $project -> id) }}">EDIT</a>
             </li>
             <br>
         @endforeach

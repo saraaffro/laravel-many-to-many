@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1 class="ms-3">EDIT PROJECT:</h1>
-    <form class="ms-3" action="{{ route('project.update', $project -> id) }}" method="POST">
+    <form class="ms-3" action="{{ route('project.update', $project -> id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -55,6 +55,10 @@
             </label>
             <br>
         @endforeach
+        <br><br>
+
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" accept="image/">
         <br><br>
         
 
