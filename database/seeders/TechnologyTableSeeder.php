@@ -18,7 +18,7 @@ class TechnologyTableSeeder extends Seeder
     public function run()
     {
         Technology :: factory()
-            -> count(5)
+            -> count(15)
             -> create()
             -> each(function($technology) {
 
