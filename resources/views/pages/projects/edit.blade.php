@@ -55,10 +55,15 @@
             </label>
             <br>
         @endforeach
-        <br><br>
+        <br>
+
+        @if ($project -> image)
+            <img width="150px" src="{{ asset('storage/' . $project -> image)}}" alt="img">
+            <br>
+        @endif
 
         <label for="image">Image</label>
-        <input type="file" name="image" id="image" accept="image/">
+        <input type="file" name="image" id="image" accept="image/*">
         <br><br>
         
 
