@@ -10,6 +10,7 @@
     <p class="ms-3">{{$project -> date}}</p>
     @foreach($project -> technologies as $technology)
         <p class="ms-3">Technology: {{$technology -> name}}</p>
+        <p class="ms-3">Decsription: {{ $technology -> description }}</p>
     @endforeach
     <p class="ms-3">Type: {{ $project -> type -> name }}</p>
     <img class="ms-3" width="150px" src="{{ asset('storage/' . $project -> image)}}" alt="img">
