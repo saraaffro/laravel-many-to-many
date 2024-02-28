@@ -24,10 +24,21 @@
                 })
             },
             toCreateNewTechnology(){
-                this.createFormActive = true;
+                this.createFormActive = !this.createFormActive;
             },
             saveNewTechnology(){
-                
+                axios.post('http://localhost:8000/api/technologies', this.newTechnology)
+                .then(res => {
+                    this.technologies.push(res.data.data);
+
+                    this.newTechnology.name = '';
+                    this.newTechnology.description = '';
+
+                    this.createFormActive = false;
+                })
+                .catch(err => {
+                    console.log(err);
+                })
             }
         },
         mounted(){
@@ -40,7 +51,7 @@
     <h1 class="text-center">Technologies:</h1>
 
     <div class="container">
-        <form v-if="createFormActive">
+        <form v-if="createFormActive" @submit.prevent="saveNewTechnology()">
             <label for="name">Name</label>
             <br>
             <input type="text" name="name" id="name" v-model="newTechnology.name">

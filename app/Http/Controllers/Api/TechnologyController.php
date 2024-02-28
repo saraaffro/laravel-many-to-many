@@ -30,7 +30,19 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+
+        $newTechnology = new Technology();
+
+        $newTechnology -> name = $data['name'];
+        $newTechnology -> description = $data['description'];
+
+        $newTechnology -> save();
+
+        return response() -> json([
+            'success' => true,
+            'data' => $newTechnology
+        ]);
     }
 
     /**

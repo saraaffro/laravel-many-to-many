@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/technologies', [TechnologyController :: class, 'index']);
+Route::post('/technologies', [TechnologyController :: class, 'store']);
